@@ -3,72 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fabians Portfolio (DE)</title>
-    <!-- ../ springt eine Ebene höher, um die style.css im Hauptverzeichnis zu nutzen -->
+    <title>Fabians Portfolio</title>
+    <!-- Springt eine Ebene höher ins Hauptverzeichnis zur CSS-Datei -->
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
+    <!-- Der Container aktiviert das zentrierte Design aus der style.css -->
     <div class="container">
 
         <header>
-            <h1>Willkommen auf meiner Webseite</h1>
+            <h1>Willkommen auf meiner Webseite!</h1>
             <nav>
-                <!-- Die Hauptlinks verweisen auf die Dateien im Hauptverzeichnis -->
+                <!-- Die Links springen eine Ebene höher zu den Hauptseiten -->
                 <a href="../index.html">Home</a> 
                 <span class="divider">|</span> 
                 <a href="../projekte.html">Meine Projekte</a> 
                 <span class="divider">|</span> 
                 <a href="../ueber-mich.html">Über mich</a> 
-                <span class="divider">|</span>
-            
-                <!-- Das Dropdown springt erst ins Hauptverzeichnis und dann in den jeweiligen Ordner -->
+                <span class="divider">|</span> 
+
+                <!-- Echtes Dropdown ohne URL-Verschachtelung -->
                 <select id="language-select" onchange="if(this.value) location = this.value;">
-                    <option value="" disabled selected>🌐 Sprache</option>
-                    <option value="../de/index.html">🇩🇪 Deutsch</option>
+                    <option value="" disabled>🌐 Sprache</option>
+                    <option value="../de/index.html" disabled selected>🇩🇪 Deutsch</option>
                     <option value="../en/index.html">🇺🇸 English</option>
                 </select>
             </nav>
         </header>
 
         <main>
-            <h2>Hallo! (Deutsche Version)</h2>
+            <h2>Hallo!</h2>
             <p>Das ist die Startseite im deutschen Unterverzeichnis deiner Mini-Webseite. Von hier aus gelangst du zu deinen Projekten oder erfährst mehr über mich.</p>
         </main>
 
     </div>
-
-</body>
-</html><!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fabians Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <header>
-        <h1>Willkommen auf meiner Webseite</h1>
-        <nav>
-            <a href="de/index.html">Home</a> | 
-            <a href="projekte.html">Meine Projekte</a> | 
-            <a href="ueber-mich.html">Über mich</a> |
-        
-            <!-- Echtes Dropdown ohne Links -->
-            <select id="language-select" onchange="if(this.value) location = this.value;">
-                <option value="" disabled selected>🌐 Sprache</option>
-                <option value="de/index.html">🇩🇪 Deutsch</option>
-                <option value="en/index.html">🇺🇸 English</option>
-            </select>
-        </nav>
-    </header>
-
-    <main>
-        <h2>Hallo!</h2>
-        <p>Das ist die Startseite meiner Mini-Webseite. Von hier aus gelangst du zu meinen Projekten oder erfährst mehr über mich.</p>
-    </main>
 
 </body>
 </html>
