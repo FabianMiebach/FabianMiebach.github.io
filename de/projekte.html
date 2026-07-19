@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meine Bereiche & Kompetenzen - Fabians Portfolio</title>
+    <!-- Greift auf die CSS-Datei im Hauptverzeichnis zu -->
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>Bereiche & Kompetenzen</h1>
+            <nav>
+                <!-- Links führen zurück ins Hauptverzeichnis oder zu übergeordneten Seiten -->
+                <a href="../index.html">Home</a> 
+                <span class="divider">|</span> 
+                <a href="projekte.html">Kompetenzen</a> 
+                <span class="divider">|</span> 
+                <a href="../ueber-mich.html">Über mich</a> 
+                <span class="divider">|</span> 
+                
+                <!-- Sprachauswahl (Wechsel zur englischen Version im en-Ordner) -->
+                <select id="language-select" onchange="if(this.value) location = this.value;">
+                    <option value="" disabled>🌐 Sprache</option>
+                    <option value="../de/projekte.html" disabled selected>🇩🇪 Deutsch</option>
+                    <option value="../en/projekte.html">🇬🇧 English</option>
+                </select>
+            </nav>
+        </header>
+
+        <main>
+            <p>Übersicht meiner Qualifikationen und Schwerpunkte, aufgeteilt nach Fachbereichen. Klicken Sie auf eine Karte, um mein detailliertes Skillset in diesem Bereich zu sehen:</p>
+
+            <div class="card-grid">
+
+                <!-- 1. SOFTWAREENTWICKLUNG -->
+                <a href="projekte/softwareentwicklung.html" class="portfolio-card">
+                    <div class="card-image-wrapper">
+                        <img src="../bilder/softwareentwicklung.jpg" alt="Softwareentwicklung">
+                    </div>
+                    <div class="card-content">
+                        <h3>Softwareentwicklung</h3>
+                        <p>Konzeption und Umsetzung von logischen Strukturen, Anwendungen und Webtechnologien.</p>
+                    </div>
+                </a>
+
+                <!-- 2. IT-INFRASTRUKTUR -->
+                <a href="projekte/it-infrastruktur.html" class="portfolio-card">
+                    <div class="card-image-wrapper">
+                        <img src="../bilder/it-infrastruktur.jpg" alt="IT-Infrastruktur">
+                    </div>
+                    <div class="card-content">
+                        <h3>IT-Infrastruktur</h3>
+                        <p>Administration, Überwachung und Absicherung von Systemlandschaften und Netzwerken.</p>
+                    </div>
+                </a>
+
+                <!-- 3. KÜNSTLICHE INTELLIGENZ -->
+                <a href="projekte/ki.html" class="portfolio-card">
+                    <div class="card-image-wrapper">
+                        <img src="../bilder/ki.jpg" alt="Künstliche Intelligenz">
+                    </div>
+                    <div class="card-content">
+                        <h3>Künstliche Intelligenz (KI)</h3>
+                        <p>Pragmatischer und effizienter Einsatz moderner KI-Tools zur Prozessoptimierung.</p>
+                    </div>
+                </a>
+
+                <!-- 4. MEDIEN -->
+                <a href="projekte/medien.html" class="portfolio-card">
+                    <div class="card-image-wrapper">
+                        <img src="../bilder/medien.jpg" alt="Medien">
+                    </div>
+                    <div class="card-content">
+                        <h3>Medien</h3>
+                        <p>Kreative und visuelle Umsetzung von Inhalten für digitale Plattformen und Interfaces.</p>
+                    </div>
+                </a>
+                
+                                <!-- 5. WIRTSCHAFTLICH-RECHTLICHES WISSEN -->
+                <a href="projekte/wirtschaft-recht.html" class="portfolio-card">
+                    <div class="card-image-wrapper">
+                        <img src="../bilder/wirtschaft-recht.jpg" alt="Wirtschaftlich-Rechtliches Wissen">
+                    </div>
+                    <div class="card-content">
+                        <h3>Wirtschaftlich-Rechtliches Wissen</h3>
+                        <p>Interdisziplinäres Verständnis aus Ausbildung, Studium und privater Wissensaneignung in Finanz- und Rechtsfragen.</p>
+                    </div>
+                </a>
+            </div>
+        </main>
+
+    </div>
+
+</body>
+</html>
