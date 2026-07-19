@@ -14,13 +14,13 @@
             <a href="index.html">Home</a> | 
             <a href="projekte.html">Meine Projekte</a> | 
             <a href="ueber-mich.html">Über mich</a> |
-            <div class="lang-menu">
-                <button class="lang-btn">🌐 Sprache</button>
-                <div class="lang-dropdown">
-                    <a href="de/index.html">🇩🇪 Deutsch</a>
-                    <a href="en/index.html">🇺🇸 English</a>
-                </div>
-            </div>
+        
+            <!-- Echtes Dropdown ohne Links -->
+            <select id="language-select" onchange="if(this.value) location = this.value;">
+                <option value="" disabled selected>🌐 Sprache</option>
+                <option value="index.html">🇩🇪 Deutsch</option>
+                <option value="en/index.html">🇺🇸 English</option>
+            </select>
         </nav>
     </header>
 
