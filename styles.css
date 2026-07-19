@@ -1,0 +1,47 @@
+/* Container für das Sprachmenü */
+.lang-menu {
+    position: relative;
+    display: inline-block;
+    margin-left: 15px;
+}
+
+/* Der Button selbst */
+.lang-btn {
+    background-color: #f1f1f1;
+    color: #333;
+    padding: 5px 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* Das versteckte Dropdown-Fenster */
+.lang-dropdown {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0,2);
+    z-index: 1;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Links innerhalb des Dropdowns */
+.lang-dropdown a {
+    color: black;
+    padding: 8px 12px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Farbe ändern, wenn man über die Sprachen hovert */
+.lang-dropdown a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Zeigt das Dropdown an, wenn man mit der Maus über den Button fährt */
+.lang-menu:hover .lang-dropdown {
+    display: block;
+}
