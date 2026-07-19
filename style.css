@@ -5,33 +5,44 @@ body {
     margin: 0;
     padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: #f7f9fa; /* Hellgrauer Hintergrund für den modernen Kontrast */
+    background-color: #f7f9fa;
     color: #1a1a1a;
     line-height: 1.6;
 }
 
 /* ==========================================================================
-   2. MODULARES LAYOUT-SYSTEM (CONTAINER)
+   2. DYNAMISCHES LAYOUT-SYSTEM (FLUID & INHALTSBASIERT)
    ========================================================================== */
-/* Die gemeinsame Basis für alle Inhalts-Boxen auf der Website */
+/* 
+   Der Basis-Container ist komplett fluid. Er nutzt standardmäßig 92% des Bildschirms.
+   Es gibt KEINE feste Pixel-Breitenbeschränkung mehr.
+*/
 .layout-container {
     margin: 40px auto;
     padding: 30px;
-    width: 90%;
+    width: 92%;
     background: #ffffff;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Der weiche Schatten aus deinem Screenshot */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     box-sizing: border-box;
 }
 
-/* Variante A: Schmaler Lese-Modus (für index.html, über-mich.html) */
+/* 
+   Variante A: Lesbarkeits-Fokus (für index.html, über-mich.html)
+   Statt Pixeln nutzen wir 'ch' (Character width). 
+   ~75ch beschränkt die Box auf die optimale Breite für ermüdungsfreies Lesen (ca. 70-80 Zeichen pro Zeile).
+*/
 .layout-narrow {
-    max-width: 750px;
+    max-width: 75ch;
 }
 
-/* Variante B: Breiter Dashboard-Modus (für das Karten-Grid auf projekte.html) */
+/* 
+   Variante B: Grid-Fokus (für projekte.html)
+   Kein Limit. Die Box darf sich so weit ausdehnen, wie der Bildschirm groß ist (z. B. 95% Breite),
+   da der Inhalt (das Grid) selbst bestimmt, wie viele Spalten sinnvoll hineinpassen.
+*/
 .layout-wide {
-    max-width: 1200px;
+    max-width: 95%;
 }
 
 /* ==========================================================================
@@ -71,7 +82,6 @@ nav a:hover {
     user-select: none;
 }
 
-/* Sprachauswahl-Dropdown */
 #language-select {
     padding: 6px 10px;
     border-radius: 4px;
@@ -79,22 +89,25 @@ nav a:hover {
     background-color: #fff;
     font-size: 0.9rem;
     cursor: pointer;
-    margin-left: auto; /* Schiebt das Dropdown nach ganz rechts */
+    margin-left: auto;
 }
 
 /* ==========================================================================
-   4. PORTFOLIO-CARD KOMPONENTE & GRID
+   4. INHALTSBASIERTES GRID SYSTEM (KEINE FESTEN SPALTENANZAHLEN)
    ========================================================================== */
-/* Das flexible Raster-System */
 .card-grid {
     display: grid;
-    /* Automatische Spalten: Mindestens 250px breit, füllt den Platz sonst flexibel auf */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
+    /* 
+       Die Karten bestimmen ihr Layout selbst:
+       Jede Karte will idealerweise 18rem (~288px) breit sein. 
+       Gibt der Bildschirm 5 Spalten her, entstehen 5. Gibt er nur 2 her, entstehen 2.
+       Der verbleibende Restplatz wird über '1fr' perfekt gleichmäßig aufgeteilt.
+    */
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: 1.5rem;
     margin-top: 30px;
 }
 
-/* Die einzelne Karte als interaktives Element */
 .portfolio-card {
     display: flex;
     flex-direction: column;
@@ -103,38 +116,35 @@ nav a:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
     text-decoration: none;
     color: #1a1a1a;
-    overflow: hidden; /* Verhindert, dass Bildecken aus dem Radius herausragen */
+    overflow: hidden;
     transition: transform 0.22s ease, box-shadow 0.22s ease;
     border: 1px solid #eef1f2;
 }
 
-/* Eleganter Hover-Effekt */
 .portfolio-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
-/* Bild-Wrapper für exakt gleiche Bildhöhen */
 .card-image-wrapper {
     width: 100%;
-    height: 180px;
+    height: 11rem; /* Dynamische Höhe basierend auf der Schriftgröße */
     overflow: hidden;
-    background: #eaeaea; /* Grauer Fallback, falls ein Bildpfad nicht stimmt */
+    background: #eaeaea;
 }
 
 .card-image-wrapper img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Verhindert Verzerrungen des Bildes */
+    object-fit: cover;
 }
 
-/* Textbereich in den Karten */
 .card-content {
     padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 8px;
-    flex-grow: 1; /* Zwingt den Content, den Rest der Karte auszufüllen (für gleiche Kartenhöhen) */
+    flex-grow: 1;
 }
 
 .card-content h3 {
@@ -153,7 +163,7 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   5. ALLGEMEINER CONTENT (MAIN / TEXT)
+   5. ALLGEMEINER CONTENT
    ========================================================================== */
 main p {
     color: #4a4a4a;
@@ -164,225 +174,4 @@ main h2 {
     font-size: 1.5rem;
     color: #1a1a1a;
     margin-top: 0;
-}/* ==========================================================================
-   1. GRUNDLEGENDE EINSTELLUNGEN
-   ========================================================================== */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.6;
-    color: #333333;
-    background-color: #f8f9fa;
-    padding: 40px 20px;
-}
-
-/* Container, um den Inhalt auf großen Bildschirmen zu zentrieren */
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-}
-
-/* ==========================================================================
-   2. HEADER & NAVIGATION
-   ========================================================================== */
-header {
-    border-bottom: 2px solid #eaeaea;
-    padding-bottom: 20px;
-    margin-bottom: 30px;
-}
-
-h1 {
-    font-size: 2rem;
-    color: #1a1a1a;
-    margin-bottom: 15px;
-}
-
-nav {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    font-size: 1rem;
-    color: #888888; /* Farbe für die Trennstriche */
-}
-
-nav a {
-    text-decoration: none;
-    color: #0066cc;
-    font-weight: 500;
-    transition: color 0.2s ease;
-}
-
-nav a:hover {
-    color: #004499;
-    text-decoration: underline;
-}
-
-/* ==========================================================================
-   3. ECHTES NATIVES DROPDOWN (SPRACHAUSWAHL)
-   ========================================================================== */
-#language-select {
-    padding: 6px 10px;
-    font-size: 0.9rem;
-    font-family: inherit;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
-    background-color: #ffffff;
-    color: #333333;
-    cursor: pointer;
-    margin-left: auto; /* Schiebt das Dropdown ganz nach rechts */
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-#language-select:focus {
-    outline: none;
-    border-color: #0066cc;
-    box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15);
-}
-
-/* Stylt die Optionen im aufgeklappten Zustand (Browser-Standard) */
-#language-select option {
-    color: #333333;
-    background-color: #ffffff;
-}
-
-#language-select option:disabled {
-    color: #999999;
-}
-
-/* ==========================================================================
-   4. HAUPTINHALT (MAIN) & PROJEKTLINKS
-   ========================================================================== */
-main {
-    margin-bottom: 20px;
-}
-
-h2 {
-    font-size: 1.5rem;
-    color: #2c3e50;
-    margin-bottom: 15px;
-}
-
-p {
-    margin-bottom: 15px;
-    font-size: 1.05rem;
-    color: #4a4a4a;
-}
-
-/* Styling für Links im Haupttext (z.B. Projektlinks) */
-main a {
-    color: #0066cc;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-main a:hover {
-    text-decoration: underline;
-}
-
-/* ==========================================================================
-   5. RESPONSIVE DESIGN (FÜR MOBILGERÄTE)
-   ========================================================================== */
-@media (max-width: 600px) {
-    body {
-        padding: 15px 10px;
-    }
-    
-    .container {
-        padding: 20px;
-    }
-    
-    nav {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-    }
-    
-    /* Trennstriche auf Mobilgeräten ausblenden */
-    nav span.divider {
-        display: none;
-    }
-    
-    #language-select {
-        margin-left: 0;
-        margin-top: 10px;
-        width: 100%; /* Volle Breite auf dem Handy */
-    }
-}
-
-/* Das Grid-System, das deine Karten anordnet */
-.card-grid {
-    display: grid;
-    /* Erstellt automatisch so viele Spalten wie Platz ist, mindestens 250px breit */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    margin-top: 30px;
-}
-
-/* Die Portfolio-Card Komponente */
-.portfolio-card {
-    display: flex;
-    flex-direction: column;
-    background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    text-decoration: none; /* Entfernt den Unterstrich des Links */
-    color: #1a1a1a;
-    overflow: hidden; /* Verhindert, dass die Ecken des Bildes oben herausragen */
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* Hover-Effekt: Die Karte hebt sich elegant, wenn man mit der Maus drüberfährt */
-.portfolio-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-}
-
-/* Bild-Bereich */
-.card-image-wrapper {
-    width: 100%;
-    height: 180px; /* Einheitliche Höhe für alle Vorschaubilder */
-    overflow: hidden;
-    background: #f0f0f0; /* Fallback-Hintergrund, falls ein Bild lädt */
-}
-
-.card-image-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Schneidet das Bild sauber zu, ohne es zu verzerren */
-}
-
-/* Text-Bereich innerhalb der Karte */
-.card-content {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    flex-grow: 1; /* Zwingt den Textbereich, den restlichen Platz auszufüllen */
-}
-
-/* Fette Überschrift */
-.card-content h3 {
-    margin: 0;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #1a1a1a;
-    line-height: 1.3;
-}
-
-/* Subtext */
-.card-content p {
-    margin: 0;
-    font-size: 0.95rem;
-    color: #555555;
-    line-height: 1.4;
 }
