@@ -4,30 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fabians Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> <!-- Lädt die CSS direkt aus demselben Ordner -->
 </head>
 <body>
 
-    <header>
-        <h1>Willkommen auf meiner Webseite</h1>
-        <nav>
-            <a href="index.html">Home</a> | 
-            <a href="projekte.html">Meine Projekte</a> | 
-            <a href="ueber-mich.html">Über mich</a> |
-        
-            <!-- Echtes Dropdown ohne Links -->
-            <select id="language-select" onchange="if(this.value) location = this.value;">
-                <option value="" disabled selected>🌐 Sprache</option>
-                <option value="de/index.html">🇩🇪 Deutsch</option>
-                <option value="en/index.html">🇺🇸 English</option>
-            </select>
-        </nav>
-    </header>
+    <div class="container">
 
-    <main>
-        <h2>Hallo!</h2>
-        <p>Das ist die Startseite meiner Mini-Webseite. Von hier aus gelangst du zu meinen Projekten oder erfährst mehr über mich.</p>
-    </main>
+        <header>
+            <h1>Willkommen auf meiner Webseite</h1>
+            <nav>
+                <a href="index.html">Home</a> 
+                <span class="divider">|</span> 
+                <a href="projekte.html">Meine Projekte</a> 
+                <span class="divider">|</span> 
+                <a href="ueber-mich.html">Über mich</a> 
+                <span class="divider">|</span>
+            
+                <!-- Korrekte Pfade direkt aus der Root-Ebene -->
+                <select id="language-select" onchange="if(this.value) location = this.value;">
+                    <option value="" disabled selected>🌐 Sprache</option>
+                    <option value="de/index.html">🇩🇪 Deutsch</option>
+                    <option value="en/index.html">🇺🇸 English</option>
+                </select>
+            </nav>
+        </header>
+
+        <main>
+            <h2>Hallo!</h2>
+            <p>Das ist die Startseite meiner Mini-Webseite. Von hier aus gelangst du zu meinen Projekten oder erfährst mehr über mich.</p>
+        </main>
+
+    </div>
 
 </body>
 </html>
