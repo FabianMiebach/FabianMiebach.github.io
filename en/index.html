@@ -1,33 +1,43 @@
-</html><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fabian's Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- Springt eine Ebene höher ins Hauptverzeichnis zur CSS-Datei -->
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
-    <header>
-        <h1>Welcome to my website!</h1>
-        <nav>
-            <a href="de/index.html">Home</a> | 
-            <a href="projekte.html">Projects</a> | 
-            <a href="ueber-mich.html">About</a> |
-        
-            <!-- Echtes Dropdown ohne Links -->
-            <select id="language-select" onchange="if(this.value) location = this.value;">
-                <option value="" disabled selected>🌐 Sprache</option>
-                <option value="de/index.html">🇩🇪 Deutsch</option>
-                <option value="en/index.html">🇺🇸 English</option>
-            </select>
-        </nav>
-    </header>
+    <!-- Der Container aktiviert das zentrierte Design aus der style.css -->
+    <div class="container">
 
-    <main>
-        <h2>Hello!</h2>
-        <p>This is the homepage of my Mini-Website. From here, you can get to my project or can view some information about me.</p>
-    </main>
+        <header>
+            <h1>Welcome to my website!</h1>
+            <nav>
+                <!-- Die Links springen eine Ebene höher zu den Hauptseiten -->
+                <a href="../index.html">Home</a> 
+                <span class="divider">|</span> 
+                <a href="../projekte.html">Projects</a> 
+                <span class="divider">|</span> 
+                <a href="../ueber-mich.html">About</a> 
+                <span class="divider">|</span> 
+
+                <!-- Echtes Dropdown ohne URL-Verschachtelung -->
+                <select id="language-select" onchange="if(this.value) location = this.value;">
+                    <option value="" disabled>🌐 Language</option>
+                    <option value="../de/index.html">🇩🇪 Deutsch</option>
+                    <option value="../en/index.html" disabled selected>🇺🇸 English</option>
+                </select>
+            </nav>
+        </header>
+
+        <main>
+            <h2>Hello!</h2>
+            <p>This is the homepage of my Mini-Website. From here, you can get to my project or can view some information about me.</p>
+        </main>
+
+    </div>
 
 </body>
 </html>
