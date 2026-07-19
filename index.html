@@ -2,39 +2,26 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fabians Portfolio</title>
-    <link rel="stylesheet" href="style.css"> <!-- Lädt die CSS direkt aus demselben Ordner -->
+    <title>Wird geladen...</title>
+    <script>
+        // 1. Browsersprache auslesen (z.B. "de-DE" oder "en-US") und die ersten zwei Buchstaben nehmen ("de" oder "en")
+        const userLang = (navigator.language || navigator.userLanguage).substring(0, 2);
+
+        // 2. Prüfen und weiterleiten
+        if (userLang === 'de') {
+            window.location.href = 'de/index.html';
+        } else {
+            // Standardmäßig auf Englisch leiten, falls die Sprache nicht Deutsch ist
+            window.location.href = 'en/index.html';
+        }
+    </script>
 </head>
 <body>
-
-    <div class="container">
-
-        <header>
-            <h1>Willkommen auf meiner Webseite</h1>
-            <nav>
-                <a href="index.html">Home</a> 
-                <span class="divider">|</span> 
-                <a href="projekte.html">Meine Projekte</a> 
-                <span class="divider">|</span> 
-                <a href="ueber-mich.html">Über mich</a> 
-                <span class="divider">|</span>
-            
-                <!-- Korrekte Pfade direkt aus der Root-Ebene -->
-                <select id="language-select" onchange="if(this.value) location = this.value;">
-                    <option value="" disabled selected>🌐 Sprache</option>
-                    <option value="de/index.html">🇩🇪 Deutsch</option>
-                    <option value="en/index.html">🇺🇸 English</option>
-                </select>
-            </nav>
-        </header>
-
-        <main>
-            <h2>Hallo!</h2>
-            <p>Das ist die Startseite meiner Mini-Webseite. Von hier aus gelangst du zu meinen Projekten oder erfährst mehr über mich.</p>
-        </main>
-
-    </div>
-
+    <!-- Falls JavaScript im Browser deaktiviert ist, sieht der Nutzer diese Links als Fallback -->
+    <p>Bitte wählen Sie Ihre Sprache / Please choose your language:</p>
+    <ul>
+        <li><a href="de/index.html">Deutsch</a></li>
+        <li><a href="en/index.html">English</a></li>
+    </ul>
 </body>
 </html>
